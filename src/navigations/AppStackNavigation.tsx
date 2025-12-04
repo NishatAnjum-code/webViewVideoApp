@@ -6,9 +6,9 @@ import WebViewScreen from '../screens/WebViewScreen'
 
 
 export type RootStackParams={
-    webview: undefined,
-    videplayer: {
-        videoUrl?: string,
+    WebWiew_Notification_Screen: undefined,
+    VideoPlayer_Screen: {
+    videoUrl?: string,
     }
     
 }
@@ -18,8 +18,8 @@ export default function AppStackNavigation() {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name='webview' component={WebViewScreen}></Stack.Screen>
-      <Stack.Screen name='videplayer' component={VideoPlayerScreen}></Stack.Screen>
+      <Stack.Screen name='WebWiew_Notification_Screen' component={WebViewScreen}></Stack.Screen>
+      <Stack.Screen name='VideoPlayer_Screen' component={VideoPlayerScreen}></Stack.Screen>
     </Stack.Navigator>
   )
 }
