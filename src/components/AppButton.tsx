@@ -18,13 +18,18 @@ export default function AppButton({containerStyle, textStyle, title, onPress}: A
 
 const styles = StyleSheet.create({
     box: {
+        width: '40%',
+        height: 40,
         borderWidth: 1,
         borderRadius: 8,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     text: {
         fontSize: 10,
         fontWeight: 300,
         alignSelf: 'center',
+        textAlignVertical: 'center',
     }
 })

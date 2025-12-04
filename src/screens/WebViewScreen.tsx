@@ -56,7 +56,7 @@ const sendNotification = async(title: string, body: string)=>{
     <View style={styles.container}>
       <Text style={styles.title}>WebView + Notification</Text>
     <WebView source={{uri: 'https://expo.dev'}} style={{flex: 1}}></WebView>
-    <View style={{gap: 10, top: 10,}}>
+    <View style={{gap: 10, top: 10, justifyContent: 'center', alignItems: 'center'}}>
       <AppButton textStyle={styles.button} title='Notification 1' onPress={()=>sendNotification('Notification 1','Hi...This is Notification 1')}></AppButton>
     <AppButton textStyle={styles.button} title='Notification 2' onPress={()=>sendNotification('Notification 2','Hi...This is Notification 2')}></AppButton>
     <AppButton textStyle={styles.button}title='Video Player Screen' onPress={()=>navigation.navigate('videplayer', {videoUrl: ''})}></AppButton>
