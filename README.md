@@ -10,9 +10,6 @@
 - Navigation between screens
 
 # Scenario,Expected Behavior,Compatibility Note
-- WebView Load,A notification is triggered 1x upon successful page load.,Fully 
-- functional in Expo Go (iOS & Android).
-- Video Playback,HLS stream plays with PiP and Fullscreen controls.,Fully functional in Expo Go (iOS & Android).
 - Local Notifications,Notifications appear 3 seconds after button press.,Works on iOS (Expo Go). 
 - Requires a Dev/Production build (EAS) for Android due to Expo Go limitations on that platform.
 

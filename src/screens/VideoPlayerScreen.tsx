@@ -7,8 +7,6 @@ export default function VideoPlayerScreen() {
 
   const hclPlayer = useVideoPlayer('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8');
 
-  if(!hclPlayer) return<Text>Loading Video..</Text> 
-  
 
   return (
     <View style={styles.container}>

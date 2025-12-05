@@ -8,7 +8,7 @@ import { RootStackParams } from '../navigations/AppStackNavigation'
 
 type WebViewScreenProp= NativeStackScreenProps<RootStackParams, 'WebWiew_Notification_Screen'>
 
-
+//handles notification behaviour when show
 Notifications.setNotificationHandler({
   handleNotification: async()=>{
     return{
@@ -23,27 +23,30 @@ Notifications.setNotificationHandler({
 
 export default function WebViewScreen({navigation}: WebViewScreenProp) {
 
-  const hasLoaded = React.useRef(false);
+  const hasLoaded = React.useRef(false); //to avoide sending duplicate notifications
 
   useEffect(()=>{
-  requestPermission();
+  requestPermission(); 
   androidChannel();
-    
-  },[])
+ 
 
+  },[])
 
 const requestPermission = async()=>{
   await Notifications.requestPermissionsAsync();
-}
+ 
+} //ask for accessing permission from the user
 
 const androidChannel = async()=>{
 if (Platform.OS === 'android'){
   await Notifications.setNotificationChannelAsync('default', {
     name: 'Default',
-    importance: Notifications.AndroidImportance.HIGH,
+    importance: Notifications.AndroidImportance.MAX,
+    sound: 'default', 
+
   })
 }
-} 
+} // android notification channel
 
 const sendNotification = async(title?: string, body?: string, notiDelay?: number)=>{
  await Notifications.scheduleNotificationAsync({
@@ -54,11 +57,11 @@ const sendNotification = async(title?: string, body?: string, notiDelay?: number
 
 } as Notifications.NotificationTriggerInput,
 })
-  }
+  } // notification with 3-5 seconds delay 
 
   return (
     <View style={styles.container}>
-    <WebView source={{uri: 'https://expo.dev'}} style={{flex: 1}} 
+    <WebView source={{uri: 'https://reactnative.dev'}} style={{flex: 1}} 
     onLoadEnd={()=>{
       if(!hasLoaded.current){
         hasLoaded.current=true;
