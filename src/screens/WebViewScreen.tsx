@@ -41,7 +41,7 @@ const androidChannel = async()=>{
 if (Platform.OS === 'android'){
   await Notifications.setNotificationChannelAsync('default', {
     name: 'Default',
-    importance: Notifications.AndroidImportance.MAX,
+    importance: Notifications.AndroidImportance.HIGH,
     sound: 'default', 
 
   })
@@ -50,10 +50,11 @@ if (Platform.OS === 'android'){
 
 const sendNotification = async(title?: string, body?: string, notiDelay?: number)=>{
  await Notifications.scheduleNotificationAsync({
-  content: {title, body},
+  content: {title, body, priority: Notifications.AndroidNotificationPriority.HIGH},
   trigger: {
   type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
   seconds: notiDelay ?? 3,
+  channelId: 'Default'
 
 } as Notifications.NotificationTriggerInput,
 })
